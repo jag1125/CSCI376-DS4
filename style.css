@@ -23,6 +23,10 @@ body {
     text-decoration: underline;
     font-weight: bold;
   }
+
+  .form-select {
+    width: 20%;
+  }
   
   .book-grid {
     display: flex;
@@ -37,7 +41,7 @@ body {
     width: 200px;
     text-align: center;
   }
-  
+
   footer {
     text-align: center;
     padding: 20px;

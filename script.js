@@ -1,28 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
     const books = document.querySelectorAll(".book");
-    const highlightBtn = document.querySelector("#highlightButton");
-    const resetBtn = document.querySelector("#resetButton");
     const clearBtn = document.querySelector("#clearButton");
+    const filterBtn = document.getElementById("filter-select");
+    const filterDone = document.getElementById("filterButton");
   
     // ----- EVENTS -----
-    highlightBtn.addEventListener("click", () => {
-      books.forEach(book => {
-        const title = book.querySelector("h2").textContent;
-        if (title.length > 20) {
-          book.classList.remove("border-primary");
-          book.classList.add("border-danger", "border-3");
-        }
-      });
-    });
-  
-    resetBtn.addEventListener("click", () => {
-      books.forEach(book => {
-        book.classList.remove("border-danger", "border-3", "bg-info", "text-white", "d-none");
-        book.classList.add("border-primary");
-      });
-      searchInput.value = "";
-    });
-  
     books.forEach(book => {
       book.addEventListener("click", () => {
         book.classList.add("bg-info", "text-white");
@@ -47,5 +29,24 @@ document.addEventListener("DOMContentLoaded", () => {
         book.closest(".col").classList.remove("d-none");
       });
     });
+
+    filterDone.addEventListener("click", () => {
+      let filter = null;
+      for(const option of filterBtn.children){
+        if(option.selected){
+          filter = option.text
+        }
+      }
+      if(filter === "Fiction" || filter === "Fantasy" || filter === "Dystopian"){
+        books.forEach(book => {
+          const genre = book.querySelector("p2").textContent;
+          book.closest(".col").classList.toggle("d-none", !genre.includes(filter));
+        });
+      }
+      else{
+        books.forEach(book => {
+          book.closest(".col").classList.remove("d-none");
+        });
+      }
+    });
   });
-  
