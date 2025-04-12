@@ -19,7 +19,9 @@ document.addEventListener("DOMContentLoaded", () => {
       const query = searchInput.value.toLowerCase();
       books.forEach(book => {
         const title = book.querySelector("h2").textContent.toLowerCase();
-        book.closest(".col").classList.toggle("d-none", !title.includes(query));
+        const genre = book.querySelector("p2").textContent.toLowerCase();
+        const author = book.querySelector("p").textContent.toLowerCase();
+        book.closest(".col").classList.toggle("d-none", (!title.includes(query) && !genre.includes(query) && !author.includes(query)));
       });
     });
   
