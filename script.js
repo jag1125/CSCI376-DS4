@@ -32,6 +32,27 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
 
+    filterDone.addEventListener("click", () => {
+      let filter = null;
+      for(const option of filterBtn.children){
+        if(option.selected){
+          filter = option.text
+        }
+      }
+      if(filter === "Fiction" || filter === "Fantasy" || filter === "Dystopian"){
+        books.forEach(book => {
+          const genre = book.querySelector("p2").textContent;
+          book.closest(".col").classList.toggle("d-none", !genre.includes(filter));
+        });
+      }
+      else{
+        books.forEach(book => {
+          book.closest(".col").classList.remove("d-none");
+        });
+      }
+    });
+  });
+
   
   // for modal
   const exampleModal = document.getElementById('exampleModal');
@@ -41,37 +62,18 @@ document.addEventListener("DOMContentLoaded", () => {
       const button = event.relatedTarget;
       // Extract info from data-bs-* attributes
       const title = button.getAttribute('data-bs-title');
+      const author = button.getAttribute('data-bs-author');
       const description = button.getAttribute('data-bs-description');
       const image = button.getAttribute('data-bs-image');
 
       // Update the modal's content.
       const modalTitle = exampleModal.querySelector('.modal-title');
-      const modalBody = exampleModal.querySelector('.modal-body');
+      const modalAuthor = exampleModal.querySelector('.modal-author')
+      const modalDesc = exampleModal.querySelector('.description');
   
       modalTitle.textContent = `${title}`;
-      modalBody.textContent = `${description}`;
+      modalAuthor.textContent = `${author}`;
+      modalDesc.textContent = `${description}`;
+      document.getElementById('image').src = image;
     });
   }
-
-
-
-  filterDone.addEventListener("click", () => {
-    let filter = null;
-    for(const option of filterBtn.children){
-      if(option.selected){
-        filter = option.text
-      }
-    }
-    if(filter === "Fiction" || filter === "Fantasy" || filter === "Dystopian"){
-      books.forEach(book => {
-        const genre = book.querySelector("p2").textContent;
-        book.closest(".col").classList.toggle("d-none", !genre.includes(filter));
-      });
-    }
-    else{
-      books.forEach(book => {
-        book.closest(".col").classList.remove("d-none");
-      });
-    }
-  });
-});
