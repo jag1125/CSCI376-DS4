@@ -31,7 +31,6 @@ document.addEventListener("DOMContentLoaded", () => {
         book.closest(".col").classList.remove("d-none");
       });
     });
-  });
 
   
   // for modal
