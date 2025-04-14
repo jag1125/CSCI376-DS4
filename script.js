@@ -48,4 +48,24 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   });
+
   
+  // for modal
+  const exampleModal = document.getElementById('exampleModal');
+  if (exampleModal) {
+    exampleModal.addEventListener('show.bs.modal', event => {
+      // Button that triggered the modal
+      const button = event.relatedTarget;
+      // Extract info from data-bs-* attributes
+      const title = button.getAttribute('data-bs-title');
+      const description = button.getAttribute('data-bs-description');
+      const image = button.getAttribute('data-bs-image');
+
+      // Update the modal's content.
+      const modalTitle = exampleModal.querySelector('.modal-title');
+      const modalBody = exampleModal.querySelector('.modal-body');
+  
+      modalTitle.textContent = `${title}`;
+      modalBody.textContent = `${description}`;
+    });
+  }
