@@ -45,6 +45,7 @@ body {
   .book-img {
     width: 100%;
     height: 400px;
+    max-height: 400px;
     margin: auto;
     object-fit: cover; 
   }
