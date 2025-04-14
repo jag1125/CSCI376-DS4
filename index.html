@@ -14,7 +14,8 @@
   <div style="height: 250px;"></div> <!-- spacer pushing everything down -->
     <main class="container">
     <h1 class="text-center">Book Catalog</h1>
-    <div class="input-group mb-4">
+    <div class="search-and-filter-container">
+      <div class="input-group mb-4">
         <input type="text" id="searchInput" class="form-control" placeholder="Search by title, author, or genre">
         <button class="btn btn-outline-primary" id="clearButton">Clear</button>
     </div>
@@ -27,6 +28,7 @@
         <option value="Dystopian">Dystopian</option>
       </select>
       <button class="btn btn-outline-primary" id="filterButton">Apply Filter</button>
+      </div>
     </div>
     
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
@@ -133,6 +135,7 @@
           <img src="https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781451673265/fahrenheit-451-9781451673265_hr.jpg" class="book-img">
           <h2><a href="#">Fahrenheit 451</a></h2>
           <p class="card-text">by Ray Bradbury</p>
+          <p2 class="card-text-genre">Dystopian</p2>
           <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" 
           data-bs-title="Fahrenheit 451"
           data-bs-author="Ray Bradbury"
