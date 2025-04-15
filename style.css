@@ -62,7 +62,7 @@ body {
 
   .search-and-filter-container{
     z-index: 4;
-    top: 2rem;
+    top: 0rem;
     position: sticky;
     margin-bottom: 2rem;
     padding: 1rem;
