@@ -39,6 +39,7 @@ body {
     margin: auto;
     width: 300px;
     text-align: center;
+    cursor: pointer;
   }
 
   .book-img {
